@@ -1,4 +1,4 @@
-class Matrice:
+class matrice:
 
     ## n est le nombre de lignes
     ## m est le nombre de colonnes
@@ -71,4 +71,25 @@ class Matrice:
         for i in range(self.n):
             self.matrice[i][i] = value
 
+    def mult(self, value):
+        for i in range(self.n):
+            for j in range(self.m):
+                self.matrice[i][j] *= value
 
+    def transpose(self):
+        result = matrice(self.m, self.n)
+        for i in range(self.n):
+            for j in range(self.m):
+                result.matrice[j][i] = self.matrice[i][j]
+        return result
+
+    def norme(self):
+        result = 0
+        for i in range(self.n):
+            for j in range(self.m):
+                result += self.matrice[i][j] ** 2
+        return result ** 0.5
+
+    def numb(self):
+        if self.n == 1 and self.m == 1:
+            return self.matrice[0][0]
