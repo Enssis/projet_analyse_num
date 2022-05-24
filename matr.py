@@ -9,7 +9,12 @@ class matrice:
         self.values = [[0.0 for j in range(m)] for i in range(n)]
 
     def __str__(self):
-        return str(self.values)
+        result = ""
+        for i in range(self.n):
+            for j in range(self.m):
+                result += str(self.values[i][j]) + " "
+            result += "\n"
+        return result
 
     def __add__(self, other):
         if self.n == other.n and self.m == other.m:
